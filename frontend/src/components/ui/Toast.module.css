@@ -1,0 +1,50 @@
+.region {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: min(400px, calc(100vw - 2 * var(--space-4)));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--tone, var(--accent));
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  animation: slide-in var(--dur) var(--ease);
+}
+
+.success { --tone: var(--success); }
+.error { --tone: var(--danger); }
+.info { --tone: var(--info); }
+
+.message { flex: 1; font-size: var(--text-sm); padding-top: 2px; }
+
+.dismiss {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; margin: -6px -8px -6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-muted);
+  border-radius: var(--radius-sm);
+}
+.dismiss:hover { color: var(--ink); }
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 480px) {
+  .region { left: var(--space-4); width: auto; bottom: calc(var(--space-4) + env(safe-area-inset-bottom)); }
+}

@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="frontend/frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="RaceDayApi.AppHost/RaceDayApi.AppHost.csproj" />
+  <Project Path="RaceDayApi.Contracts/RaceDayApi.Contracts.csproj" />
+  <Project Path="RaceDayApi.Server/RaceDayApi.Server.csproj" />
+  <Project Path="RaceDayApi.Tests/RaceDayApi.Tests.csproj" Id="633eadd2-dce1-4016-be90-b24c86144ad2" />
+</Solution>

@@ -1,0 +1,152 @@
+/*
+ * Design tokens. Dark is the default; light via [data-theme='light'] or the OS preference.
+ * The look is deliberately flat: hairline borders instead of shadows, 2px corners, one accent.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces and ink (warm black, never pure #000) */
+  --bg: #0d0b0c;
+  --surface: #141112;
+  --surface-2: #1b1718;
+  --surface-3: #262021;
+  --border: #2d2628;
+  --border-strong: #4a4144;
+  --ink: #f5f1f2;
+  --ink-muted: #b0a8ab;
+  --ink-faint: #877e82;
+
+  /* The one accent: rose pink. Used for actions, emphasis and numbering, nowhere else. */
+  --accent: #e68bab;
+  --accent-hover: #f0a3bd;
+  --accent-ink: #170b10; /* text on a solid accent background */
+  --accent-soft: rgba(230, 139, 171, 0.14);
+
+  /* Status (always paired with an icon or a word, never colour alone) */
+  --success: #72d3a8;
+  --success-soft: rgba(114, 211, 168, 0.14);
+  --warning: #f0c36b;
+  --warning-soft: rgba(240, 195, 107, 0.14);
+  --danger: #ff7c6e;
+  --danger-ink: #1a0705; /* text on a solid danger background */
+  --danger-soft: rgba(255, 124, 110, 0.14);
+  --info: #8db6f5;
+  --info-soft: rgba(141, 182, 245, 0.14);
+
+  /* Podium */
+  --gold: #e6c17a;
+  --silver: #c9c3c5;
+  --bronze: #d3966a;
+
+  /* Typography */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: clamp(2.5rem, 6vw, 3.75rem);
+  --text-4xl: clamp(3.5rem, 11vw, 8.5rem); /* hero only */
+  --tracking-label: 0.14em;
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --section-gap: clamp(4rem, 10vw, 8rem);
+  --gutter: clamp(1rem, 4vw, 4rem);
+
+  /* Shape: sharp. Nothing is rounded more than 4px, nothing floats on a shadow. */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-pill: 2px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6); /* only for things that sit above the page: dialogs, menus */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+
+  /* Motion */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --container: 120rem; /* ~1630px on desktop (root is 85%) */
+  --header-h: 4.25rem;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f6f2f2;
+  --surface: #ffffff;
+  --surface-2: #efe9ea;
+  --surface-3: #e4dcde;
+  --border: #ded5d7;
+  --border-strong: #a99fa3;
+  --ink: #151012;
+  --ink-muted: #594f53;
+  --ink-faint: #70666a;
+
+  --accent: #b52e5a;
+  --accent-hover: #8f2247;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(181, 46, 90, 0.1);
+
+  --success: #1d6e4d;
+  --success-soft: rgba(29, 110, 77, 0.1);
+  --warning: #8a5a10;
+  --warning-soft: rgba(138, 90, 16, 0.12);
+  --danger: #b3261e;
+  --danger-ink: #ffffff;
+  --danger-soft: rgba(179, 38, 30, 0.1);
+  --info: #2457b8;
+  --info-soft: rgba(36, 87, 184, 0.1);
+
+  --gold: #8f6a1c;
+  --silver: #6b6468;
+  --bronze: #8f5428;
+
+  --shadow-lg: 0 24px 64px rgba(21, 16, 18, 0.18);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --bg: #f6f2f2;
+    --surface: #ffffff;
+    --surface-2: #efe9ea;
+    --surface-3: #e4dcde;
+    --border: #ded5d7;
+    --border-strong: #a99fa3;
+    --ink: #151012;
+    --ink-muted: #594f53;
+    --ink-faint: #70666a;
+    --accent: #b52e5a;
+    --accent-hover: #8f2247;
+    --accent-ink: #ffffff;
+    --accent-soft: rgba(181, 46, 90, 0.1);
+    --success: #1d6e4d;
+    --success-soft: rgba(29, 110, 77, 0.1);
+    --warning: #8a5a10;
+    --warning-soft: rgba(138, 90, 16, 0.12);
+    --danger: #b3261e;
+    --danger-ink: #ffffff;
+    --danger-soft: rgba(179, 38, 30, 0.1);
+    --info: #2457b8;
+    --info-soft: rgba(36, 87, 184, 0.1);
+    --gold: #8f6a1c;
+    --silver: #6b6468;
+    --bronze: #8f5428;
+    --shadow-lg: 0 24px 64px rgba(21, 16, 18, 0.18);
+  }
+}

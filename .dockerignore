@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/.vs/
+**/*.user
+**/*.db
+**/*.db-shm
+**/*.db-wal
+frontend/dist/
+frontend/coverage/
+frontend/test-results/
+frontend/playwright-report/
+RaceDayApi.Tests/
+RaceDayApi.AppHost/
+.git/
+.github/

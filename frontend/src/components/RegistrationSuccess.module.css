@@ -1,0 +1,5 @@
+.content { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
+.label { color: var(--ink-muted); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.bib { font-family: var(--font-display); font-size: 5rem; font-weight: 700; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; animation: pop var(--dur) var(--ease); }
+.note { color: var(--ink-muted); font-size: var(--text-sm); max-width: 38ch; }
+@keyframes pop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: none; } }

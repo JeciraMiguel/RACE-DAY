@@ -1,0 +1,8 @@
+.toolbar { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-end; margin-bottom: var(--space-5); }
+.search { flex: 1 1 280px; max-width: 420px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: var(--space-5); }
+.skeletonCard { display: flex; flex-direction: column; gap: var(--space-3); padding-bottom: var(--space-5); }
+.skeletonBody { display: flex; flex-direction: column; gap: var(--space-3); padding-inline: var(--space-5); }
+.fading { opacity: 0.6; transition: opacity var(--dur) var(--ease); }
+.count { color: var(--ink-muted); font-size: var(--text-sm); }
+.when { min-width: 150px; }

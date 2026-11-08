@@ -1,0 +1,17 @@
+.group { display: inline-flex; flex-wrap: wrap; gap: var(--space-1); max-width: 100%; }
+.option { position: relative; }
+.option input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.text {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 44px; padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.option:hover .text { color: var(--ink); border-color: var(--border-strong); }
+.option input:checked + .text { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.option input:focus-visible + .text { box-shadow: var(--focus-ring); }
+.option input:disabled + .text { opacity: 0.45; }
+.count { font-variant-numeric: tabular-nums; opacity: 0.75; font-weight: 600; }
+.large .text { min-height: 52px; padding: 0 var(--space-5); }

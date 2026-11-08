@@ -1,0 +1,18 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Cards that are links answer with the accent border, they do not lift or glow */
+.interactive {
+  transition: border-color var(--dur) var(--ease);
+}
+
+.interactive:hover,
+.interactive:focus-within {
+  border-color: var(--accent);
+}
+
+.body { padding: var(--space-5); }

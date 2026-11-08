@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.subtitle { margin-top: var(--space-3); color: var(--ink-muted); max-width: 60ch; }
+.actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .header { padding-block: var(--space-6) var(--space-5); }
+  .actions { width: 100%; }
+  .actions > * { flex: 1 1 auto; }
+}

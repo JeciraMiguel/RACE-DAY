@@ -1,0 +1,53 @@
+# ---- .NET build output ----
+bin/
+obj/
+*.dll
+*.pdb
+TestResults/
+*.trx
+coverage/
+publish/
+
+# ---- IDE and user files ----
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.user
+*.suo
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ---- Local databases (recreated and migrated on startup) ----
+*.db
+*.db-shm
+*.db-wal
+
+# ---- Secrets: never commit. Use .env.example as the template ----
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+secrets.json
+
+# ---- Frontend ----
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/coverage/
+frontend/test-results/
+frontend/playwright-report/
+frontend/.vite/
+*.local
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- Local tooling ----
+.claude/

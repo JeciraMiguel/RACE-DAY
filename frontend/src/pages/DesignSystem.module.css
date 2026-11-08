@@ -1,0 +1,8 @@
+.section { margin-bottom: var(--space-7); }
+.section > h2 { margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border); }
+.row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-5); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-3); }
+.swatch { padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: var(--text-xs); }
+.chip { display: block; height: 40px; margin-bottom: var(--space-2); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.podium { color: var(--gold); font-weight: 700; }

@@ -1,0 +1,35 @@
+# Production-like stack: the API (serving the React app) plus Azurite for event banner storage.
+#   cp .env.example .env   # then edit the secrets
+#   docker compose up --build
+# App and API: http://localhost:8080 (Swagger is only enabled in Development)
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      Jwt__Key: ${JWT_KEY:?set JWT_KEY in .env (at least 32 characters)}
+      Seed__AdminEmail: ${ADMIN_EMAIL:-admin@raceday.local}
+      Seed__AdminPassword: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD in .env}
+      # The API reaches Azurite through the compose network...
+      AzureBlobStorage__ConnectionString: "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;"
+      # ...while browsers fetch banners through the published port
+      AzureBlobStorage__PublicBaseUrl: http://localhost:10000/devstoreaccount1
+    volumes:
+      - raceday-data:/data
+    depends_on:
+      - azurite
+    restart: unless-stopped
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    command: azurite-blob --blobHost 0.0.0.0 --skipApiVersionCheck
+    ports:
+      - "10000:10000"
+    volumes:
+      - azurite-data:/data
+    restart: unless-stopped
+
+volumes:
+  raceday-data:
+  azurite-data:

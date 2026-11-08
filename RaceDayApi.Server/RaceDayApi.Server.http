@@ -1,0 +1,64 @@
+@Server_HostAddress = http://localhost:5398
+
+### Log in as the development administrator and copy the token from the response
+POST {{Server_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@raceday.local",
+  "password": "Admin#12345"
+}
+
+### Paste the token here
+@token = <paste-access-token>
+
+### List public events
+GET {{Server_HostAddress}}/api/events?page=1&pageSize=20
+Accept: application/json
+
+### List venues
+GET {{Server_HostAddress}}/api/venues
+
+### Create a draft event (multipart form)
+POST {{Server_HostAddress}}/api/events
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=raceday
+
+--raceday
+Content-Disposition: form-data; name="Title"
+
+City 10K
+--raceday
+Content-Disposition: form-data; name="Description"
+
+Annual city race
+--raceday
+Content-Disposition: form-data; name="EventDate"
+
+2027-03-01T08:00:00
+--raceday
+Content-Disposition: form-data; name="VenueId"
+
+1
+--raceday--
+
+### Add a category to event 1
+POST {{Server_HostAddress}}/api/categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "name": "10 km", "entryFee": 150, "eventId": 1, "distanceKm": 10, "maxParticipants": 200 }
+
+### Publish event 1
+POST {{Server_HostAddress}}/api/events/1/publish
+Authorization: Bearer {{token}}
+
+### Register the logged-in user for category 1
+POST {{Server_HostAddress}}/api/registrations
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "categoryId": 1 }
+
+### Leaderboard for category 1
+GET {{Server_HostAddress}}/api/results/leaderboard/1

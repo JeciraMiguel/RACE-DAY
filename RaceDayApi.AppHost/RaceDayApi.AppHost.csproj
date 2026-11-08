@@ -1,0 +1,20 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.5.3">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>cf9a5e5d-666d-4ca6-be19-9e4c6d15db34</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RaceDayApi.Server\RaceDayApi.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Azure.Storage" Version="13.5.3" />
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.5.3" />
+  </ItemGroup>
+</Project>

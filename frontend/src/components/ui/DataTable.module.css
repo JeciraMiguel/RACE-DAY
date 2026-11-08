@@ -1,0 +1,38 @@
+.wrap {
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.table { width: 100%; border-collapse: collapse; }
+
+.table th {
+  padding: var(--space-3) var(--space-4);
+  color: var(--ink-faint);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.table td { padding: var(--space-4); border-top: 1px solid var(--border); }
+.table tbody tr:first-child td { border-top: 0; }
+.table tbody tr { transition: background var(--dur-fast) var(--ease); }
+.table tbody tr:hover { background: var(--surface); }
+
+.table th.numeric,
+.table td.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+
+.caption { padding: var(--space-3) var(--space-4); text-align: left; color: var(--ink-muted); font-size: var(--text-sm); }
+
+/* On phones every row becomes a block with the header repeated as a small label */
+@media (max-width: 640px) {
+  .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .table, .table tbody, .table tr, .table td { display: block; width: 100%; }
+  .table tr { padding: var(--space-3) 0; border-top: 1px solid var(--border); }
+  .table tbody tr:first-child { border-top: 0; }
+  .table td { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); border: 0; padding: var(--space-2) var(--space-1); text-align: right; }
+  .table td::before { content: attr(data-label); color: var(--ink-faint); font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-label); text-transform: uppercase; text-align: left; flex-shrink: 0; }
+}
